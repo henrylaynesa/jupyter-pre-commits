@@ -1,0 +1,5 @@
+- id: notebook-formatter
+  name: Jupyter Notebooks Formatter
+  entry: notebook_formatter
+  language: python
+  files: \.ipynb$

@@ -1,5 +1,5 @@
 - id: notebook-formatter
-  name: Jupyter Notebooks Formatter
-  entry: notebook_formatter
+  name: Black Notebook
+  entry: black_notebook
   language: python
   files: \.ipynb$

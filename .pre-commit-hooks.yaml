@@ -1,5 +1,10 @@
-- id: notebook-formatter
+- id: black-notebook
   name: Black Notebook
-  entry: black_notebook
+  entry: black-notebook
+  language: python
+  files: \.ipynb$
+- id: check-valid-json
+  name: Check valid JSON
+  entry: check-valid-json
   language: python
   files: \.ipynb$

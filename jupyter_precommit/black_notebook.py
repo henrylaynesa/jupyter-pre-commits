@@ -28,17 +28,16 @@ def main():
             cell_source = "".join(cell["source"])
 
             # Black
-            if not args.disable_black:
-                proc = Popen(
-                    ["black", "-c", cell_source], stdin=PIPE, stdout=PIPE, stderr=PIPE
-                )
-                stdout, stderr = proc.communicate()
-                if stderr.decode() != "":
-                    raise Exception(stderr.decode())
-                stdout = stdout.decode().strip()
-                delim = "\n"
-                new_source = [line + delim for line in stdout.split("\n")]
-                new_source[-1] = new_source[-1].strip()
+            proc = Popen(
+                ["black", "-c", cell_source], stdin=PIPE, stdout=PIPE, stderr=PIPE
+            )
+            stdout, stderr = proc.communicate()
+            if stderr.decode() != "":
+                raise Exception(stderr.decode())
+            stdout = stdout.decode().strip()
+            delim = "\n"
+            new_source = [line + delim for line in stdout.split("\n")]
+            new_source[-1] = new_source[-1].strip()
 
             if cell_source != stdout:
                 notebook["cells"][i]["source"] = new_source

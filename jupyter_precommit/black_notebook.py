@@ -13,7 +13,7 @@ def main():
 
     for filename in args.filenames:
         if not filename.endswith(".ipynb"):
-            raise Exception(f"Non-Jupyter notebook file {filename} found")
+            raise Exception(f"{filename}: Non-Jupyter notebook file  found")
     filenames = args.filenames
 
     if len(filenames) == 0:

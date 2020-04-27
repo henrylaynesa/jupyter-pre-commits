@@ -9,32 +9,7 @@ from subprocess import PIPE, Popen
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("filenames", nargs="+", help="Jupyter notebook filenames")
-    parser.add_argument(
-        "--pre-commit", action="store_true", dest="pre_commit", help="Use as Pre-commit"
-    )
-    parser.add_argument(
-        "--disable-black",
-        action="store_true",
-        dest="disable_black",
-        help="Disable black from being applied to Jupyter notebook",
-    )
-    # parser.add_argument(
-    #     "--disable-isort",
-    #     action="store_true",
-    #     dest="disable_isort",
-    #     help="Disable isort from being applied to Jupyter notebook",
-    # )
     args = parser.parse_args()
-
-    if args.pre_commit:
-        proc = Popen(
-            ["git", "diff", "--staged", "--name-only", "--diff-filter=A"],
-            stdin=PIPE,
-            stdout=PIPE,
-            stderr=PIPE,
-        )
-        stdout, stderr = proc.communicate()
-        filenames = stdout.decode().splitlines()
 
     for filename in args.filenames:
         if not filename.endswith(".ipynb"):

@@ -12,8 +12,6 @@ setup(
     version="0.0.1",
     packages=find_packages(),
     entry_points={
-        "console_scripts": [
-            "black_notebook = jupyter_precommit.black_notebook:main"
-        ]
+        "console_scripts": ["black_notebook = jupyter_precommit.black_notebook:main"]
     },
 )

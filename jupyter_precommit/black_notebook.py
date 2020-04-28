@@ -25,6 +25,9 @@ def main():
         with open(filename, "r") as f:
             notebook = json.load(f)
         for i, cell in enumerate(notebook["cells"]):
+            if cell["cell_type"] != "code":
+                continue
+
             cell_source = "".join(cell["source"])
 
             # Black
